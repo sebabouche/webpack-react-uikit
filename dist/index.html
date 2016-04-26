@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="main.css" />
+</head>
+
+<body>
+  <div class="uk-container uk-container-center">
+    <div class="uk-block">
+      <h1 class="uk-text-center"> React - UIKit - Webpack boilerplate</h1>
+    </div>
+
+    <div class="uk-grid uk-grid-width-1-3 uk-grid-match" data-uk-grid-margin data-uk-grid-match="{target:'.uk-panel'}">
+      <div>
+        <div class="uk-panel uk-panel-box"
+          <h2>Red h1 means scss working</h2>
+          <h1>H1</h1>
+        </div>
+      </div>
+
+      <div>
+        <div class="uk-panel uk-panel-box">
+          <h2>
+            Font Awesome working
+          </h2>
+          <i class="uk-icon-users uk-icon-large uk-text-danger"></i>
+        </div>
+      </div>
+
+      <div>
+        <div class="uk-panel uk-panel-box">
+          <h2>UIKit Core javascript working</h2>
+          <button class="uk-button uk-button-primary" data-uk-toggle="{target:'#my-id'}">Toggle</button>
+          <div class="uk-hidden uk-alert" id="my-id">Working!</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="uk-panel uk-panel-box">
+          <h2>UIKit Components working (tooltip)</h2>
+          <button class="uk-button uk-button-success" data-uk-tooltip title="This is the message">Hover me!</button>
+        </div>
+      </div>
+
+      <div>
+        <div class="uk-panel uk-panel-box">
+          <div id="app"></div>
+        </div>
+      </div>
+
+  </div>
+
+  <script src="bundle.js"></script>
+</body>
+
+</html>

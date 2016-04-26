@@ -1,0 +1,13 @@
+@import "../node_modules/uikit/dist/scss/uikit-mixins";
+
+// your custom code goes here, e.g. mixins, variables
+$icon-font-path: "../node_modules/uikit/dist/fonts";
+
+@import "../node_modules/uikit/dist/scss/uikit";
+@import "../node_modules/uikit/dist/scss/components/tooltip";
+
+$red: #a00;
+
+h1 {
+  color: $red;
+}
