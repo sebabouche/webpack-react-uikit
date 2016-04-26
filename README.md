@@ -9,7 +9,7 @@ Just run:
 
 	npm install
 	webpack-dev-server
-	
+
 If you want to minify and gather everything in the `/dist` folder:
 
 	webpack --production
@@ -41,9 +41,9 @@ You can use this folder structure :
 	 		|		|--- images/
 	 		|		|--- index.js
 	 		|--- uiChild/
-	 		
+
 Component is defined in index.js. Don't forget to specify a `display_name` for your component.
 
 Read more on this in this [great article](https://simonsmith.io/using-webpack-to-build-react-components-and-their-assets/).
 
-Follow me on twitter: @seb_nico
+[Follow me on twitter](https://twitter.com/@seb_nicolaidis)
