@@ -1,15 +1,34 @@
 {
   "name": "react-webpack-uikit-boilerplate",
   "version": "0.0.1",
-  "description": "React Webpack UIKit SCSS Boilerplate with a test index page",
+  "description": "React Webpack UIKit SCSS Heroku-ready boilerplate app with a test index page",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sebabouche/webpack-react-uikit.git"
+  },
+  "keywords": [
+    "react",
+    "webpack",
+    "uikit",
+    "express",
+    "node",
+    "heroku",
+    "mocha",
+    "chai"
+  ],
+  "author": "Sébastien Nicolaïdis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sebabouche/webpack-react-uikit/issues"
+  },
+  "homepage": "https://github.com/sebabouche/webpack-react-uikit",
   "scripts": {
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js \"test/**/*@(.js|.jsx)\"",
-    "test:watch": "npm run test -- --watch"
+    "test:watch": "npm run test -- --watch",
+    "start": "npm run build & node server",
+    "build": "webpack --production"
   },
-  "keywords": [],
-  "author": "Sébastien Nicolaïdis",
-  "license": "ISC",
   "babel": {
     "presets": [
       "es2015",
@@ -38,6 +57,7 @@
   },
   "dependencies": {
     "classnames": "^2.2.3",
+    "express": "^4.13.4",
     "immutable": "^3.8.1",
     "jquery": "^2.2.3",
     "react": "^15.0.1",
