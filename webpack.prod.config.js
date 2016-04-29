@@ -1,25 +1,23 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path')
+const webpack = require('webpack')
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry: [
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
     './src/index.jsx'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: "/"
+    publicPath: '/'
   },
   module: {
     loaders: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'react-hot!babel'
+        loader: 'babel'
       },
       {
         test: /\.s?css$/,
@@ -30,23 +28,30 @@ module.exports = {
         loader: "file?name=[path][name].[ext]"
       },
       {
-         test: /\.(woff|woff2|ttf|otf|eot\?#.+|svg#.+)$/,
-         loader: "file?name=[path][name].[ext]"
-       }
+        test: /\.(woff|woff2|ttf|otf|eot\?#.+|svg#.+)$/,
+        loader: "file?name=[path][name].[ext]"
+      }
     ]
   },
   resolve: {
     extensions: ['', '.js', '.jsx']
   },
-  devServer: {
-    contentBase: './dist',
-    hot: true
-  },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin("styles.css"),
     new HtmlWebpackPlugin({
-      template: './src/index.tpl.html'
+      template: 'src/index.tpl.html'
+    }),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true,
+      compress: {
+        warnings: false
+      }
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
     })
   ]
-};
+}
