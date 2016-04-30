@@ -25,7 +25,14 @@ module.exports = {
       },
       {
         test: /\.(ico|jpe?g|png|gif)$/,
-        loader: "file?name=[path][name].[ext]"
+        loaders: ['file?name=[path][name].[ext]',
+          'image-webpack?{
+            progressive:true,
+            optimizationLevel: 7,
+            interlaced: false,
+            pngquant:{quality: "65-90", speed: 4}
+          }'
+        ]
       },
       {
         test: /\.(woff|woff2|ttf|otf|eot\?#.+|svg#.+)$/,
