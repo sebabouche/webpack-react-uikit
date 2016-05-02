@@ -32,7 +32,7 @@
     "test:watch": "npm run test -- --watch",
     "start": "node server",
     "build": "webpack --config ./webpack.prod.config.js --progress --colors",
-    "clean": "rm -r dist/*"
+    "clean": "rm -rf dist/*"
   },
   "babel": {
     "presets": [
