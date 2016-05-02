@@ -20,8 +20,6 @@ const user_data = [
   }
 ]
 
-console.log(user_data);
-
 export default React.createClass({
   displayName: 'App',
 
@@ -33,6 +31,9 @@ export default React.createClass({
     return(
       <div>
         <h2>React components loading!</h2>
+        <div className="uk-panel uk-panel-box">
+          <h3>UI-Kit working</h3>
+        </div>
         <div>{users}</div>
       </div>
     );
