@@ -3,11 +3,10 @@
 // your custom code goes here, e.g. mixins, variables
 $icon-font-path: "../node_modules/uikit/dist/fonts";
 
+@import url(https://fonts.googleapis.com/css?family=Raleway:100,400);
+$base-body-font-family: "Raleway", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$base-heading-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$base-heading-font-weight: 100;
+
 @import "../node_modules/uikit/dist/scss/uikit";
 @import "../node_modules/uikit/dist/scss/components/tooltip";
-
-$red: #a00;
-
-h1 {
-  color: $red;
-}

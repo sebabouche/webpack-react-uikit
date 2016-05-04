@@ -8,7 +8,7 @@ window.jQuery = $;
 window.$ = $;
 
 require('uikit/dist/js/uikit.min.js');
-require('uikit/dist/js/components/tooltip.js');
+require('uikit/dist/js/components/sticky.js');
 
 require('./styles.scss');
 

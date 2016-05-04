@@ -22,7 +22,11 @@ module.exports = {
         loader: 'react-hot!babel'
       },
       {
-        test: /\.s?css$/,
+        test: /\.css$/,
+        loader: 'style!css-loader?modules&importLoaders=1&localIdentName=[path][name]__[local]___[hash:base64:5]'
+      },
+      {
+        test: /\.scss$/,
         loader: ExtractTextPlugin.extract(['css','sass'])
       },
       {
