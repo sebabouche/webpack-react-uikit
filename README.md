@@ -1,48 +1,65 @@
 # React Webpack UIKit Boilerplate
 
-Yet another React Webpack Boiler plate. Still alpha
-(needs more testing and staging). But it gathers a few cool
-concepts and implementations normally showing on the index page.
+Yet another React Webpack Boiler plate.
 
 ## Installation
-Just run:
+On your local machine, for development, just run:
 
 	npm install
 	webpack-dev-server
 
-If you want to minify and gather everything in the `/dist` folder:
+## Production (Heroku)
+If you want to minify and send everything on Heroku.
 
-	webpack --production
+### Clean the `/dist` folder
+Windows users, beware, doesn't run on Windows (you'll need to do it manually or install [Rimraf](https://github.com/isaacs/rimraf)).
+
+	npm run clean
+
+### Build your app in the `/dist` folder
+
+	npm run build
+
+It will build :
++ `/dist/index.html` from `./src/index.tpl.html`
++ `/dist/bundle.js`
++ `/dist/styles.css`
+
+### Test your production environment locally
+It will run the express.js server instead of webpack-dev-server
+
+	npm run start
+
+### Push to heroku
+TODO: Explain a bit more.
+
+	git push heroku master
 
 ## Features
 ### UIKIT
 Load __uikit components__ from `src/styles.scss` and `src/index.js`.
 
-### SCSS
-Custom Scss can be written in `src/styles.scss` if they concern the whole app.  
-Otherwise prefer to stuff them in the `css` folder of your React components for reusability and require them.
-
-### Webpack
-For developpment use `webpack-dev-server`.  
-For production you can minify etc. using `webpack --production`.
-The trick is in `webpack.config.js` and makes it possible to have just one config file for dev and production.
-
-This [resource was of great help](http://putaindecode.io/fr/articles/js/webpack/premier-exemple/). It's in French :-/
+### CSS Modules / SCSS
++ App-wide styling or css-frameworks can imported in scss.
++ Otherwise prefer to stuff styling in a `style.css` file.
++ Then import them from your React component with `import styles from './styles.css'`
++ You can now call a style from your component like so : `<div className={styles.some-styling}>`
++ See [css modules](https://github.com/css-modules/css-modules) and [css-loader](https://github.com/webpack/css-loader) for more info.
 
 ### React Components grouped with assets
-This is the most awesome thing about this boilerplate.  
 Group your css, static images, fonts inside your very component folder.
-You can use this folder structure :
+I personnally use this folder structure:
 
 	src/
 	 |-- components/
-	 		|--- uiComponent/
-	 		|		|--- css/
-	 		|		|--- images/
-	 		|		|--- index.js
-	 		|--- uiChild/
+	 		|--- Component/
+			|		|--- fonts/
+			|		|--- images/
+	 		|		|--- index.jsx
+	 		|		|--- styles.css
+	 		|--- AnotherComponent/
 
-Component is defined in index.js. Don't forget to specify a `display_name` for your component.
+Component is defined in `index.jsx`. I have seen some people specify a `displayName:` inside the component but it works without it. If you know why, I'd be glad to hear why.
 
 Read more on this in this [great article](https://simonsmith.io/using-webpack-to-build-react-components-and-their-assets/).
 
