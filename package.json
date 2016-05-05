@@ -28,8 +28,11 @@
   },
   "homepage": "https://github.com/sebabouche/webpack-react-uikit",
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js \"test/**/*@(.js|.jsx)\"",
+    "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js \"test/**/*.spec.js\"",
     "test:watch": "npm run test -- --watch",
+    "test:ignorestyles": "mocha --require ./test/test_helper.js --require ignore-styles(['.png', '.css']) \"test/**/*.spec.js\"",
+    "test:old": "mocha --compilers js:babel-core/register --require ./test/test_helper.js \"test/**/*@(.js|.jsx)\"",
+    "test:old:watch": "npm run test -- --watch",
     "start": "node server",
     "build": "webpack --config ./webpack.prod.config.js --progress --colors",
     "clean": "rm -rf dist/*"
@@ -51,6 +54,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "html-webpack-plugin": "^2.16.0",
+    "ignore-styles": "^1.2.0",
     "image-webpack-loader": "^1.8.0",
     "jsdom": "^8.4.0",
     "mocha": "^2.4.5",
@@ -64,10 +68,13 @@
   },
   "dependencies": {
     "classnames": "^2.2.3",
+    "css-modules-require-hook": "^4.0.0",
     "express": "^4.13.4",
     "immutable": "^3.8.1",
     "jquery": "^2.2.3",
+    "md5": "^2.1.0",
     "react": "^15.0.1",
+    "react-addons-test-utils": "^15.0.2",
     "react-dom": "^15.0.1",
     "uikit": "^2.26.2"
   }

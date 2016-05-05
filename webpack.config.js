@@ -1,18 +1,35 @@
-var path = require('path');
-var webpack = require('webpack');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
+const buildDirectory = './dist/';
 
 module.exports = {
   entry: [
-    'webpack-dev-server/client?http://localhost:8080',
-    'webpack/hot/only-dev-server',
     './src/index.jsx'
   ],
+  devServer: {
+    hot: true,
+    inline: true,
+    progress: true,
+    colors: true,
+    watch: true,
+    port: 7070,
+    historyApiFallback: true
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx']
+  },
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.resolve(buildDirectory),
     filename: 'bundle.js',
     publicPath: "/"
+  },
+  externals: {
+      'cheerio': 'window',
+      'react/lib/ExecutionEnvironment': true,
+      'react/lib/ReactContext': true,
   },
   module: {
     loaders: [
@@ -31,20 +48,13 @@ module.exports = {
       },
       {
         test: /\.(ico|jpe?g|png|gif)$/,
-        loader: "file?name=[path][name].[ext]"
+        loader: 'file?name=[path][name].[ext]'
       },
       {
          test: /\.(woff|woff2|ttf|otf|eot\?#.+|svg#.+)$/,
          loader: "file?name=[path][name].[ext]"
        }
     ]
-  },
-  resolve: {
-    extensions: ['', '.js', '.jsx']
-  },
-  devServer: {
-    contentBase: './dist',
-    hot: true
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
