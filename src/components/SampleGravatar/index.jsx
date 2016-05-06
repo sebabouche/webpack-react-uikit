@@ -25,10 +25,11 @@ export default class SampleGravatar extends React.Component {
 
   render() {
     return (
-      <div className="react-gravatar">
-        <h4>Avatar for:</h4>
+      <div className="uk-container react-gravatar">
+        <h4 className="uk-text-contrast">Avatar for:</h4>
         <SampleAvatar email={this.state.email} src={this.state.src}/>
         <SampleEmail fetchGravatar={this.updateGravatar.bind(this)} handleEmailChange={this.updateEmail.bind(this)}/>
+        <p className="uk-text-contrast">Test with s.nicolaidis@me.com</p>
       </div>
     );
   }

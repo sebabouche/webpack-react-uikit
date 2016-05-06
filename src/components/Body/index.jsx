@@ -3,6 +3,7 @@ import styles from './index.css';
 import React from 'react';
 
 import SampleChild from '../SampleChild';
+import SampleGravatar from '../SampleGravatar';
 
 export default class Body extends React.Component{
   render() {
@@ -28,6 +29,7 @@ export default class Body extends React.Component{
         <section className="uk-block uk-block-primary" id="section2">
           <div className="uk-height-viewport">
             <h2 className="uk-contrast uk-text-center">Section2</h2>
+            <SampleGravatar />
           </div>
         </section>
         <section className="uk-block uk-block-muted" id="section3">

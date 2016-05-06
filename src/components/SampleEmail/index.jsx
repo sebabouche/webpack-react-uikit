@@ -7,12 +7,16 @@ export default class SampleEmail extends React.Component {
 
   render() {
     return (
-      <div className="form-group">
-        <input onChange={this.props.handleEmailChange} className="form-control" style={{
-          width: 200
-        }} type="text"/>
-        <button onClick={this.props.fetchGravatar} className="btn-success btn ">Fetch</button>
-      </div>
+      <form className="uk-form">
+        <div className="uk-form-row">
+          <input
+            onChange={this.props.handleEmailChange}
+            className="uk-form-control"
+            type="text"
+          />
+          <button onClick={this.props.fetchGravatar} className="uk-button uk-button-success">Fetch</button>
+        </div>
+      </form>
     );
   }
 };

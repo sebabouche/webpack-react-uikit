@@ -30,9 +30,6 @@
   "scripts": {
     "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js \"test/**/*.spec.js\"",
     "test:watch": "npm run test -- --watch",
-    "test:ignorestyles": "mocha --require ./test/test_helper.js --require ignore-styles(['.png', '.css']) \"test/**/*.spec.js\"",
-    "test:old": "mocha --compilers js:babel-core/register --require ./test/test_helper.js \"test/**/*@(.js|.jsx)\"",
-    "test:old:watch": "npm run test -- --watch",
     "start": "node server",
     "build": "webpack --config ./webpack.prod.config.js --progress --colors",
     "clean": "rm -rf dist/*"
@@ -74,6 +71,7 @@
     "jquery": "^2.2.3",
     "md5": "^2.1.0",
     "react": "^15.0.1",
+    "react-ab": "^0.4.5",
     "react-addons-test-utils": "^15.0.2",
     "react-dom": "^15.0.1",
     "uikit": "^2.26.2"
